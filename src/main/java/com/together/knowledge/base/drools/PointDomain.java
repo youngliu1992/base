@@ -1,5 +1,7 @@
 package com.together.knowledge.base.drools;
 
+import java.util.Objects;
+
 @DroolsEngineEntity(name="PointDomain",fileNames = {"point/addpoint.drl", "point/subpoint.drl"})
 public class PointDomain {
     // 用户名
@@ -95,5 +97,26 @@ public class PointDomain {
 
     public void setBillThisMonth(int billThisMonth) {
         this.billThisMonth = billThisMonth;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PointDomain that = (PointDomain) o;
+        return birthDay == that.birthDay &&
+                point == that.point &&
+                buyNums == that.buyNums &&
+                backNums == that.backNums &&
+                Double.compare(that.buyMoney, buyMoney) == 0 &&
+                Double.compare(that.backMondy, backMondy) == 0 &&
+                billThisMonth == that.billThisMonth &&
+                Objects.equals(userName, that.userName);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(userName, birthDay, point, buyNums, backNums, buyMoney, backMondy, billThisMonth);
     }
 }
