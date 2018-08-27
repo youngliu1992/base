@@ -16,7 +16,13 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
-
+ /**
+    * @author liuy
+    * @date 2018/8/27 17:39
+    * @param
+    * @return
+    * @description:扫描包中的注解
+   */
 public final class AnnoManageUtil
 {
     /**
