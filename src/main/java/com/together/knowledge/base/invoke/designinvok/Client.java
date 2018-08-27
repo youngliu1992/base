@@ -2,10 +2,9 @@ package com.together.knowledge.base.invoke.designinvok;
 
 import java.lang.reflect.InvocationTargetException;
 
-public class ProxyFactory extends DefaultInvoction{
-
-    public void print(Integer a){
-        System.out.println("Hello World");
+public class Client extends DefaultInvoction {
+    public void print(Integer a,String b){
+        System.out.println("Hello World"+b);
     }
 
 
@@ -23,12 +22,9 @@ public class ProxyFactory extends DefaultInvoction{
 
     public static void main(String[] args) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
         long start = System.currentTimeMillis();
-        ProxyFactory proxyFactory = new ProxyFactory();
+        Client client = new Client();
         for(int i=0;i < 1000000;i++) {
-            proxyFactory.invoke("print", proxyFactory, new Integer(1));
-            /*proxyFactory.doBefore();
-            proxyFactory.print(1);
-            proxyFactory.doAfter();*/
+            client.invoke("print", client, 1,"liuy");
         }
         long end = System.currentTimeMillis();
         System.out.println(end - start);
